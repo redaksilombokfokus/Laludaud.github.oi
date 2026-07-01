@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Klien - Notaris Lalu Daud Nurjadi M.Kn</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard-klien.css">
+</head>
+<body>
+    <div class="client-dashboard-container">
+        <!-- Sidebar -->
+        <aside class="client-sidebar">
+            <div class="sidebar-brand">
+                <h2>Dashboard Klien</h2>
+                <p class="client-info">Budi Santoso</p>
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#dashboard" class="menu-item active" onclick="showSection('dashboard')"><span class="icon">📊</span> Dashboard</a></li>
+                    <li><a href="#dokumen" class="menu-item" onclick="showSection('dokumen')"><span class="icon">📄</span> Dokumen</a></li>
+                    <li><a href="#tagihan" class="menu-item" onclick="showSection('tagihan')"><span class="icon">💳</span> Tagihan</a></li>
+                    <li><a href="#akta" class="menu-item" onclick="showSection('akta')"><span class="icon">📋</span> Akta</a></li>
+                    <li><a href="#chat" class="menu-item" onclick="showSection('chat')"><span class="icon">💬</span> Chat</a></li>
+                    <li><a href="#janji-temu" class="menu-item" onclick="showSection('janji-temu')"><span class="icon">📅</span> Janji Temu</a></li>
+                    <li><a href="#profil" class="menu-item" onclick="showSection('profil')"><span class="icon">👤</span> Profil</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn-logout">Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="client-main-content">
+            <!-- Header -->
+            <header class="client-header">
+                <div class="header-left">
+                    <h1>Selamat Datang, Budi Santoso</h1>
+                    <p id="current-date"></p>
+                </div>
+                <div class="header-right">
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Profile">
+                        <span>Klien</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="client-section active">
+                <h2>Status Pengurusan</h2>
+                
+                <!-- Progress Overview -->
+                <div class="progress-cards">
+                    <div class="progress-card">
+                        <div class="progress-header">
+                            <h3>Nomor Berkas</h3>
+                            <span class="berkas-number">#BRK001</span>
+                        </div>
+                        <div class="progress-info">
+                            <p><strong>Jenis Akta:</strong> Akta Jual Beli (AJB)</p>
+                            <p><strong>Tanggal Pendaftaran:</strong> 2026-06-15</p>
+                        </div>
+                    </div>
+
+                    <div class="progress-card">
+                        <div class="progress-header">
+                            <h3>Status Pengurusan</h3>
+                            <span class="status-badge status-proses">Dalam Proses</span>
+                        </div>
+                        <div class="progress-percentage">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                            <p>65% Selesai</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="timeline-section">
+                    <h3>Timeline Pengurusan</h3>
+                    <div class="timeline">
+                        <div class="timeline-item completed">
+                            <div class="timeline-marker">✓</div>
+                            <div class="timeline-content">
+                                <h4>Pengajuan Dokumen</h4>
+                                <p class="timeline-date">15 Juni 2026</p>
+                                <p class="timeline-desc">Dokumen Anda telah diterima dan sedang diverifikasi</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item completed">
+                            <div class="timeline-marker">✓</div>
+                            <div class="timeline-content">
+                                <h4>Verifikasi Dokumen</h4>
+                                <p class="timeline-date">18 Juni 2026</p>
+                                <p class="timeline-desc">Semua dokumen telah diverifikasi dengan lengkap</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item completed">
+                            <div class="timeline-marker">✓</div>
+                            <div class="timeline-content">
+                                <h4>Proses Pembuatan Akta</h4>
+                                <p class="timeline-date">20 Juni 2026</p>
+                                <p class="timeline-desc">Akta sedang dalam tahap pembuatan</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item active">
+                            <div class="timeline-marker">⏳</div>
+                            <div class="timeline-content">
+                                <h4>Jadwal Tanda Tangan</h4>
+                                <p class="timeline-date">25 Juni 2026 (Pukul 10:00)</p>
+                                <p class="timeline-desc">Jadwalkan tanda tangan akta Anda</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item pending">
+                            <div class="timeline-marker">○</div>
+                            <div class="timeline-content">
+                                <h4>Serah Terima Akta</h4>
+                                <p class="timeline-date">Menunggu Jadwal</p>
+                                <p class="timeline-desc">Akta akan diserahkan setelah tanda tangan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <h4>Estimasi Biaya</h4>
+                        <p class="stat-value">Rp 5.000.000</p>
+                        <small>Sudah dibayar: Rp 2.500.000</small>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Sisa Pembayaran</h4>
+                        <p class="stat-value">Rp 2.500.000</p>
+                        <small>Jatuh tempo: 24 Juni 2026</small>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Dokumen Upload</h4>
+                        <p class="stat-value">7/8</p>
+                        <small>1 dokumen lagi diperlukan</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dokumen Section -->
+            <section id="dokumen" class="client-section">
+                <h2>Manajemen Dokumen</h2>
+                
+                <div class="document-tabs">
+                    <button class="doc-tab active" onclick="showDocTab('upload')">Upload Dokumen</button>
+                    <button class="doc-tab" onclick="showDocTab('riwayat')">Riwayat Upload</button>
+                    <button class="doc-tab" onclick="showDocTab('diperlukan')">Dokumen Diperlukan</button>
+                </div>
+
+                <div id="upload" class="doc-tab-content active">
+                    <h3>Upload Dokumen Anda</h3>
+                    <div class="upload-area">
+                        <div class="upload-icon">📁</div>
+                        <p><strong>Drag and drop file di sini</strong></p>
+                        <p>atau</p>
+                        <input type="file" id="fileInput" multiple hidden>
+                        <button class="btn-upload" onclick="document.getElementById('fileInput').click()">Pilih File</button>
+                        <p class="upload-info">Format: PDF, JPG, PNG (Max. 10MB)</p>
+                    </div>
+                </div>
+
+                <div id="riwayat" class="doc-tab-content">
+                    <h3>Riwayat Upload Dokumen</h3>
+                    <table class="doc-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Dokumen</th>
+                                <th>Tanggal Upload</th>
+                                <th>Ukuran</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>KTP_BudiSantoso.pdf</td>
+                                <td>15-06-2026</td>
+                                <td>1.2 MB</td>
+                                <td><span class="badge badge-success">Terverifikasi</span></td>
+                                <td><button class="btn-small btn-download">Download</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>KK_BudiSantoso.pdf</td>
+                                <td>15-06-2026</td>
+                                <td>1.5 MB</td>
+                                <td><span class="badge badge-success">Terverifikasi</span></td>
+                                <td><button class="btn-small btn-download">Download</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Sertifikat_Tanah.pdf</td>
+                                <td>16-06-2026</td>
+                                <td>2.1 MB</td>
+                                <td><span class="badge badge-success">Terverifikasi</span></td>
+                                <td><button class="btn-small btn-download">Download</button></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>NPWP_BudiSantoso.pdf</td>
+                                <td>17-06-2026</td>
+                                <td>1.8 MB</td>
+                                <td><span class="badge badge-warning">Menunggu Verifikasi</span></td>
+                                <td><button class="btn-small btn-download">Download</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="diperlukan" class="doc-tab-content">
+                    <h3>Dokumen yang Diperlukan</h3>
+                    <div class="required-docs">
+                        <div class="doc-item completed">
+                            <span class="doc-check">✓</span>
+                            <p>KTP (Kartu Tanda Penduduk)</p>
+                        </div>
+                        <div class="doc-item completed">
+                            <span class="doc-check">✓</span>
+                            <p>KK (Kartu Keluarga)</p>
+                        </div>
+                        <div class="doc-item completed">
+                            <span class="doc-check">✓</span>
+                            <p>Sertifikat Tanah</p>
+                        </div>
+                        <div class="doc-item completed">
+                            <span class="doc-check">✓</span>
+                            <p>NPWP</p>
+                        </div>
+                        <div class="doc-item pending">
+                            <span class="doc-check">○</span>
+                            <p>Bukti Pembayaran PBB (Bea Perolehan Hak)</p>
+                        </div>
+                        <div class="doc-item completed">
+                            <span class="doc-check">✓</span>
+                            <p>Akta Perkawinan / Surat Nikah</p>
+                        </div>
+                        <div class="doc-item completed">
+                            <span class="doc-check">✓</span>
+                            <p>Identitas Penjual / Pemberi Hibah</p>
+                        </div>
+                        <div class="doc-item completed">
+                            <span class="doc-check">✓</span>
+                            <p>Surat Pernyataan Pajak</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tagihan Section -->
+            <section id="tagihan" class="client-section">
+                <h2>Tagihan & Pembayaran</h2>
+                
+                <div class="invoice-overview">
+                    <div class="invoice-card">
+                        <h4>Total Tagihan</h4>
+                        <p class="invoice-amount">Rp 5.000.000</p>
+                    </div>
+                    <div class="invoice-card">
+                        <h4>Sudah Dibayar</h4>
+                        <p class="invoice-amount paid">Rp 2.500.000</p>
+                    </div>
+                    <div class="invoice-card">
+                        <h4>Sisa Tagihan</h4>
+                        <p class="invoice-amount pending">Rp 2.500.000</p>
+                    </div>
+                </div>
+
+                <h3>Riwayat Invoice</h3>
+                <table class="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>No Invoice</th>
+                            <th>Tanggal</th>
+                            <th>Deskripsi</th>
+                            <th>Jumlah</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#INV/001/2026</td>
+                            <td>15-06-2026</td>
+                            <td>Pembuatan Akta Jual Beli (AJB)</td>
+                            <td>Rp 5.000.000</td>
+                            <td><span class="badge badge-warning">Menunggu Pembayaran</span></td>
+                            <td>
+                                <button class="btn-small btn-primary">Lihat</button>
+                                <button class="btn-small btn-primary">Bayar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Metode Pembayaran</h3>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <h4>Transfer Bank</h4>
+                        <p>Bank BCA</p>
+                        <p class="account-number">1234567890</p>
+                        <p class="account-name">Notaris Lalu Daud Nurjadi M.Kn</p>
+                    </div>
+                    <div class="payment-method">
+                        <h4>Transfer Bank</h4>
+                        <p>Bank Mandiri</p>
+                        <p class="account-number">9876543210</p>
+                        <p class="account-name">Notaris Lalu Daud Nurjadi M.Kn</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Akta Section -->
+            <section id="akta" class="client-section">
+                <h2>Dokumen Akta</h2>
+                
+                <div class="akta-info">
+                    <div class="info-box">
+                        <h3>Detail Akta</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Nomor Akta</label>
+                                <p>Menunggu Tanda Tangan</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Tanggal Akta</label>
+                                <p>-</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Jenis Akta</label>
+                                <p>Akta Jual Beli (AJB)</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Status</label>
+                                <p><span class="badge badge-warning">Dalam Proses</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-box">
+                        <h3>Aksi</h3>
+                        <button class="btn-primary btn-block">Preview Akta</button>
+                        <button class="btn-primary btn-block" style="background-color: #6c757d;">Download Akta</button>
+                        <p class="text-muted">Akta akan tersedia setelah ditandatangani</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chat Section -->
+            <section id="chat" class="client-section">
+                <h2>Chat dengan Tim Notaris</h2>
+                
+                <div class="chat-container">
+                    <div class="chat-box">
+                        <div class="chat-message received">
+                            <div class="message-avatar">👤</div>
+                            <div class="message-content">
+                                <p class="message-sender">Dewi Lestari (Staff)</p>
+                                <p class="message-text">Selamat siang, Budi. Dokumen Anda sudah diterima dengan lengkap. Kami akan segera memproses akta Anda.</p>
+                                <p class="message-time">10:30 - 18 Juni 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="chat-message sent">
+                            <div class="message-content">
+                                <p class="message-text">Terima kasih. Berapa estimasi waktu selesainya?</p>
+                                <p class="message-time">10:45 - 18 Juni 2026</p>
+                            </div>
+                        </div>
+
+                        <div class="chat-message received">
+                            <div class="message-avatar">👤</div>
+                            <div class="message-content">
+                                <p class="message-sender">Dewi Lestari (Staff)</p>
+                                <p class="message-text">Estimasi akta selesai 5 hari kerja. Kami akan menghubungi Anda untuk jadwal tanda tangan.</p>
+                                <p class="message-time">11:00 - 18 Juni 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <input type="text" placeholder="Tulis pesan Anda..." class="chat-input">
+                        <button class="btn-send">Kirim</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Janji Temu Section -->
+            <section id="janji-temu" class="client-section">
+                <h2>Janji Temu</h2>
+                
+                <div class="appointment-section">
+                    <h3>Janji Temu yang Sudah Dijadwalkan</h3>
+                    <div class="appointment-card">
+                        <div class="appointment-date">
+                            <div class="day">25</div>
+                            <div class="month">JUN</div>
+                        </div>
+                        <div class="appointment-details">
+                            <h4>Tanda Tangan Akta</h4>
+                            <p><strong>Waktu:</strong> 10:00 - 11:00 WIB</p>
+                            <p><strong>Lokasi:</strong> Kantor Notaris Lalu Daud, Jl. Diponegoro No. 123, Yogyakarta</p>
+                            <p><strong>Status:</strong> <span class="badge badge-success">Terjadwal</span></p>
+                        </div>
+                        <div class="appointment-actions">
+                            <button class="btn-small btn-primary">Reschedule</button>
+                            <button class="btn-small btn-delete">Batalkan</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-section">
+                    <h3>Jadwalkan Janji Temu Baru</h3>
+                    <form class="booking-form">
+                        <div class="form-group">
+                            <label>Jenis Janji Temu</label>
+                            <select>
+                                <option>Konsultasi</option>
+                                <option>Tanda Tangan Akta</option>
+                                <option>Serah Terima Dokumen</option>
+                                <option>Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal</label>
+                            <input type="date">
+                        </div>
+                        <div class="form-group">
+                            <label>Waktu</label>
+                            <input type="time">
+                        </div>
+                        <div class="form-group">
+                            <label>Keterangan</label>
+                            <textarea placeholder="Tulis keterangan Anda..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Jadwalkan</button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Profil Section -->
+            <section id="profil" class="client-section">
+                <h2>Profil Saya</h2>
+                
+                <div class="profile-form">
+                    <h3>Data Diri</h3>
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" value="Budi Santoso" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" value="budi@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Telepon</label>
+                        <input type="text" value="085123456789">
+                    </div>
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <textarea>Jl. Gatot Subroto No. 10, Yogyakarta</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>NIK</label>
+                        <input type="text" value="1234567890123456" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>NPWP</label>
+                        <input type="text" value="12.345.678.9-012.345" readonly>
+                    </div>
+                    <button class="btn-primary">Simpan Perubahan</button>
+                </div>
+
+                <div class="security-section">
+                    <h3>Keamanan</h3>
+                    <div class="security-item">
+                        <div>
+                            <h4>Ubah Password</h4>
+                            <p>Perbarui kata sandi akun Anda secara berkala</p>
+                        </div>
+                        <button class="btn-secondary">Ubah Password</button>
+                    </div>
+                    <div class="security-item">
+                        <div>
+                            <h4>Login Terakhir</h4>
+                            <p>01 Juli 2026, 14:30 WIB</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard-klien.js"></script>
+</body>
+</html>
