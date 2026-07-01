@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Staf - Notaris Lalu Daud Nurjadi M.Kn</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h2>Dashboard Staf</h2>
+            </div>
+            <nav class="sidebar-menu">
+                <ul>
+                    <li><a href="#dashboard" class="menu-item active" onclick="showSection('dashboard')"><span class="icon">📊</span> Dashboard</a></li>
+                    <li><a href="#klien" class="menu-item" onclick="showSection('klien')"><span class="icon">👥</span> Klien</a></li>
+                    <li><a href="#akta" class="menu-item" onclick="showSection('akta')"><span class="icon">📄</span> Akta</a></li>
+                    <li><a href="#pertanahan" class="menu-item" onclick="showSection('pertanahan')"><span class="icon">🏠</span> Pertanahan</a></li>
+                    <li><a href="#pembayaran" class="menu-item" onclick="showSection('pembayaran')"><span class="icon">💳</span> Pembayaran</a></li>
+                    <li><a href="#arsip" class="menu-item" onclick="showSection('arsip')"><span class="icon">📦</span> Arsip</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn-logout">Logout</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1>Selamat Datang, Dewi Lestari</h1>
+                    <p id="current-date"></p>
+                </div>
+                <div class="header-right">
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Profile">
+                        <span>Staf</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="dashboard-section active">
+                <h2>Tugas Hari Ini</h2>
+                
+                <!-- Today's Tasks -->
+                <div class="tasks-grid">
+                    <div class="task-card">
+                        <div class="task-icon" style="background-color: #3498db;">📝</div>
+                        <div class="task-content">
+                            <h3>Tugas Pending</h3>
+                            <p class="task-value">5</p>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-icon" style="background-color: #2ecc71;">✓</div>
+                        <div class="task-content">
+                            <h3>Tugas Selesai</h3>
+                            <p class="task-value">12</p>
+                        </div>
+                    </div>
+                    <div class="task-card">
+                        <div class="task-icon" style="background-color: #e74c3c;">⏰</div>
+                        <div class="task-content">
+                            <h3>Deadline Dekat</h3>
+                            <p class="task-value">3</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tasks Table -->
+                <div class="schedule-card">
+                    <h3>Tugas Hari Ini</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Waktu</th>
+                                <th>Tugas</th>
+                                <th>Klien</th>
+                                <th>Deadline</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>09:00</td>
+                                <td>Input Data Klien</td>
+                                <td>Budi Santoso</td>
+                                <td>2026-07-02</td>
+                                <td><span class="badge badge-warning">Pending</span></td>
+                                <td><button class="btn-small btn-primary">Mulai</button></td>
+                            </tr>
+                            <tr>
+                                <td>10:30</td>
+                                <td>Upload Dokumen</td>
+                                <td>Siti Nurhaliza</td>
+                                <td>2026-07-02</td>
+                                <td><span class="badge badge-warning">Pending</span></td>
+                                <td><button class="btn-small btn-primary">Mulai</button></td>
+                            </tr>
+                            <tr>
+                                <td>14:00</td>
+                                <td>Draft Akta</td>
+                                <td>PT Maju Jaya</td>
+                                <td>2026-07-03</td>
+                                <td><span class="badge badge-success">Selesai</span></td>
+                                <td><button class="btn-small btn-primary">Lihat</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Klien Section -->
+            <section id="klien" class="dashboard-section">
+                <h2>Manajemen Klien</h2>
+                
+                <div class="content-header">
+                    <h3>Data Klien</h3>
+                    <button class="btn-primary" onclick="openModal('tambah-klien')">+ Tambah Klien</button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Telepon</th>
+                            <th>Alamat</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Budi Santoso</td>
+                            <td>budi@email.com</td>
+                            <td>085123456789</td>
+                            <td>Jl. Gatot Subroto No. 10</td>
+                            <td>
+                                <button class="btn-small btn-edit">Edit</button>
+                                <button class="btn-small btn-delete">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Siti Nurhaliza</td>
+                            <td>siti@email.com</td>
+                            <td>085987654321</td>
+                            <td>Jl. Ahmad Yani No. 5</td>
+                            <td>
+                                <button class="btn-small btn-edit">Edit</button>
+                                <button class="btn-small btn-delete">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Akta Section -->
+            <section id="akta" class="dashboard-section">
+                <h2>Manajemen Akta</h2>
+                
+                <div class="section-tabs">
+                    <button class="tab-btn active" onclick="showTab('input-data')">Input Data</button>
+                    <button class="tab-btn" onclick="showTab('upload-dokumen')">Upload Dokumen</button>
+                    <button class="tab-btn" onclick="showTab('draft-akta')">Draft Akta</button>
+                    <button class="tab-btn" onclick="showTab('status-akta')">Status</button>
+                </div>
+
+                <div id="input-data" class="tab-content active">
+                    <div class="content-header">
+                        <h3>Input Data Akta</h3>
+                        <button class="btn-primary">+ Input Akta Baru</button>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No Berkas</th>
+                                <th>Klien</th>
+                                <th>Jenis Akta</th>
+                                <th>Tanggal Input</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#BRK001</td>
+                                <td>Budi Santoso</td>
+                                <td>AJB</td>
+                                <td>2026-07-01</td>
+                                <td><span class="badge badge-info">Input Data</span></td>
+                                <td>
+                                    <button class="btn-small btn-edit">Edit</button>
+                                    <button class="btn-small btn-delete">Hapus</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="upload-dokumen" class="tab-content">
+                    <h3>Upload Dokumen</h3>
+                    <div class="upload-area">
+                        <p>Drag and drop dokumen di sini atau klik untuk memilih</p>
+                        <input type="file" multiple>
+                    </div>
+                </div>
+
+                <div id="draft-akta" class="tab-content">
+                    <h3>Draft Akta</h3>
+                    <p>Daftar draft akta yang telah dibuat</p>
+                </div>
+            </section>
+
+            <!-- Pertanahan Section -->
+            <section id="pertanahan" class="dashboard-section">
+                <h2>Manajemen Pertanahan</h2>
+                
+                <div class="content-header">
+                    <h3>Upload Sertifikat & Monitoring BPN</h3>
+                    <button class="btn-primary">+ Upload Sertifikat</button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Klien</th>
+                            <th>Nomor Sertifikat</th>
+                            <th>Tanggal Upload</th>
+                            <th>Status BPN</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Budi Santoso</td>
+                            <td>1234/Kab.Sleman</td>
+                            <td>2026-07-01</td>
+                            <td><span class="badge badge-info">Proses</span></td>
+                            <td>
+                                <button class="btn-small btn-primary">Cek Status</button>
+                                <button class="btn-small btn-delete">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Pembayaran Section -->
+            <section id="pembayaran" class="dashboard-section">
+                <h2>Manajemen Pembayaran</h2>
+                
+                <div class="content-header">
+                    <h3>Input Pembayaran</h3>
+                    <button class="btn-primary">+ Input Pembayaran</button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Klien</th>
+                            <th>Invoice</th>
+                            <th>Jumlah</th>
+                            <th>Tanggal Pembayaran</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Budi Santoso</td>
+                            <td>#INV/001/2026</td>
+                            <td>Rp 5.000.000</td>
+                            <td>2026-07-01</td>
+                            <td><span class="badge badge-success">Lunas</span></td>
+                            <td><button class="btn-small btn-primary">Cetak</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Arsip Section -->
+            <section id="arsip" class="dashboard-section">
+                <h2>Manajemen Arsip</h2>
+                
+                <div class="section-tabs">
+                    <button class="tab-btn active" onclick="showTab('dokumen')">Dokumen</button>
+                    <button class="tab-btn" onclick="showTab('scan')">Scan</button>
+                    <button class="tab-btn" onclick="showTab('download')">Download</button>
+                </div>
+
+                <div id="dokumen" class="tab-content active">
+                    <h3>Dokumen Arsip</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Dokumen</th>
+                                <th>Tanggal Upload</th>
+                                <th>Ukuran</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>AJB_BudiSantoso_2026.pdf</td>
+                                <td>2026-07-01</td>
+                                <td>2.5 MB</td>
+                                <td>
+                                    <button class="btn-small btn-primary">Download</button>
+                                    <button class="btn-small btn-delete">Hapus</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/dashboard-staf.js"></script>
+</body>
+</html>
