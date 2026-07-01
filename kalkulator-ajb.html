@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator AJB - Notaris Lalu Daud Nurjadi M.Kn</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/kalkulator.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>Notaris Lalu Daud Nurjadi M.Kn</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Tentang</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section>
+        <div class="container">
+            <h2>Kalkulator AJB</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Akta Jual Beli - Estimasi Total Biaya</p>
+            
+            <div class="kalkulator-wrapper">
+                <div class="kalkulator-form">
+                    <h3>Input Data</h3>
+                    
+                    <div class="form-group">
+                        <label for="nilaiTransaksiAJB">Nilai Transaksi (Rp)</label>
+                        <input type="number" id="nilaiTransaksiAJB" placeholder="Contoh: 500000000" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tarifHonorarium">Tarif Honorarium Notaris (%)</label>
+                        <select id="tarifHonorarium">
+                            <option value="0.5">0.5%</option>
+                            <option value="1">1% (Standar)</option>
+                            <option value="1.5">1.5%</option>
+                            <option value="2">2%</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tarifPPAT">Tarif PPAT (%)</label>
+                        <select id="tarifPPAT">
+                            <option value="0.5">0.5%</option>
+                            <option value="1">1% (Standar)</option>
+                            <option value="1.5">1.5%</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jumlahSalinan">Jumlah Salinan</label>
+                        <input type="number" id="jumlahSalinan" value="2" min="1" max="10">
+                    </div>
+
+                    <button class="btn-hitung" onclick="hitungAJB()">Hitung Total Biaya</button>
+                    <button class="btn-reset" onclick="resetAJB()">Reset</button>
+                </div>
+
+                <div class="kalkulator-hasil">
+                    <h3>Hasil Perhitungan</h3>
+                    
+                    <div class="hasil-item">
+                        <label>Nilai Transaksi</label>
+                        <span id="hasilNilaiAJB">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>BPHTB (5%)</label>
+                        <span id="hasilBPHTBAJB">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>PPh Final (1%)</label>
+                        <span id="hasilPPhAJB">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Honorarium Notaris</label>
+                        <span id="hasilHonorarium">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Tarif PPAT</label>
+                        <span id="hasilPPATAJB">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Materai (Rp 10.000)</label>
+                        <span id="hasilMaterai">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Salinan Akta</label>
+                        <span id="hasilSalinan">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Biaya Administrasi</label>
+                        <span id="hasilAdmin">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item highlight">
+                        <label>TOTAL ESTIMASI</label>
+                        <span id="hasilTotalAJB" class="nilai-besar">Rp 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div style="background: #f0f5fa; padding: 30px; border-radius: 8px; margin-top: 40px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Komponen Biaya AJB</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>BPHTB:</strong> 5% dari nilai transaksi (setelah dikurangi NPOPTKP)</li>
+                    <li><strong>PPh Final:</strong> 1% dari nilai transaksi</li>
+                    <li><strong>Honorarium Notaris:</strong> 0.5% - 2% dari nilai transaksi</li>
+                    <li><strong>Tarif PPAT:</strong> 0.5% - 1.5% dari nilai transaksi</li>
+                    <li><strong>Materai:</strong> Rp 10.000 per lembar</li>
+                    <li><strong>Salinan Akta:</strong> ~Rp 50.000 per lembar</li>
+                    <li><strong>Biaya Administrasi:</strong> Rp 200.000 - Rp 500.000</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Notaris Lalu Daud Nurjadi M.Kn. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/kalkulator-ajb.js"></script>
+</body>
+</html>

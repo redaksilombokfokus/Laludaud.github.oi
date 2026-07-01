@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Hak Tanggungan - Notaris Lalu Daud Nurjadi M.Kn</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/kalkulator.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>Notaris Lalu Daud Nurjadi M.Kn</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Tentang</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section>
+        <div class="container">
+            <h2>Kalkulator Pinjaman Hak Tanggungan</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Estimasi Biaya Angsuran Hak Tanggungan (APHT)</p>
+            
+            <div class="kalkulator-wrapper">
+                <div class="kalkulator-form">
+                    <h3>Input Data</h3>
+                    
+                    <div class="form-group">
+                        <label for="nilaiPinjaman">Nilai Pinjaman (Rp)</label>
+                        <input type="number" id="nilaiPinjaman" placeholder="Contoh: 500000000" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nilaiTanah">Nilai Tanah Jaminan (Rp)</label>
+                        <input type="number" id="nilaiTanah" placeholder="Contoh: 600000000" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bungaPinjaman">Bunga Pinjaman (% per tahun)</label>
+                        <input type="number" id="bungaPinjaman" placeholder="Contoh: 7.5" min="0" step="0.5">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lamaAngsuran">Lama Angsuran (Bulan)</label>
+                        <select id="lamaAngsuran">
+                            <option value="12">1 Tahun (12 bulan)</option>
+                            <option value="24">2 Tahun (24 bulan)</option>
+                            <option value="36">3 Tahun (36 bulan)</option>
+                            <option value="48">4 Tahun (48 bulan)</option>
+                            <option value="60">5 Tahun (60 bulan)</option>
+                            <option value="120">10 Tahun (120 bulan)</option>
+                            <option value="180">15 Tahun (180 bulan)</option>
+                            <option value="240">20 Tahun (240 bulan)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-hitung" onclick="hitungHakTanggungan()">Hitung Biaya</button>
+                    <button class="btn-reset" onclick="resetHakTanggungan()">Reset</button>
+                </div>
+
+                <div class="kalkulator-hasil">
+                    <h3>Hasil Perhitungan</h3>
+                    
+                    <div class="hasil-item">
+                        <label>Nilai Pinjaman</label>
+                        <span id="hasilNilaiPinjamanHT">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Nilai Tanah Jaminan</label>
+                        <span id="hasilNilaiTanah">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Biaya APHT (2% dari pinjaman)</label>
+                        <span id="hasilBiayaAPHT">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>SKMHT (Surat Kuasa Membebani HT)</label>
+                        <span id="hasilSKMHT">Rp 500.000</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Biaya Registrasi HT</label>
+                        <span id="hasilRegistrasiHT">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Angsuran Bulanan</label>
+                        <span id="hasilAngsuranBulanan" class="nilai-besar">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Total Bunga (Seluruh Periode)</label>
+                        <span id="hasilTotalBunga">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item highlight">
+                        <label>TOTAL PEMBAYARAN</label>
+                        <span id="hasilTotalPembayaran" class="nilai-besar">Rp 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div style="background: #f0f5fa; padding: 30px; border-radius: 8px; margin-top: 40px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Informasi Hak Tanggungan</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>APHT:</strong> Akta Pemberian Hak Tanggungan untuk kredit dengan jaminan tanah</li>
+                    <li><strong>Biaya APHT:</strong> Umumnya 2% dari nilai pinjaman</li>
+                    <li><strong>SKMHT:</strong> Surat Kuasa Membebani Hak Tanggungan (~Rp 500.000)</li>
+                    <li><strong>Biaya Registrasi:</strong> Untuk pendaftaran di Kantor Pertanahan</li>
+                    <li><strong>Angsuran Bulanan:</strong> Dihitung berdasarkan nilai pinjaman, bunga, dan tenor</li>
+                    <li>Total pembayaran = Pinjaman + Seluruh Bunga + Biaya-biaya administratif</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Notaris Lalu Daud Nurjadi M.Kn. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/kalkulator-hak-tanggungan.js"></script>
+</body>
+</html>

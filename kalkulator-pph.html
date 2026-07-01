@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator PPh Final - Notaris Lalu Daud Nurjadi M.Kn</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/kalkulator.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>Notaris Lalu Daud Nurjadi M.Kn</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Tentang</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section>
+        <div class="container">
+            <h2>Kalkulator PPh Final</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Pajak Penghasilan Final atas Penjualan Properti</p>
+            
+            <div class="kalkulator-wrapper">
+                <div class="kalkulator-form">
+                    <h3>Input Data</h3>
+                    
+                    <div class="form-group">
+                        <label for="nilaiTransaksiPPh">Nilai Transaksi Penjualan (Rp)</label>
+                        <input type="number" id="nilaiTransaksiPPh" placeholder="Contoh: 500000000" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenisPPh">Jenis Penghasilan</label>
+                        <select id="jenisPPh">
+                            <option value="penjualan-properti">Penjualan Properti - 1%</option>
+                            <option value="penjualan-saham">Penjualan Saham Perusahaan - 0.5%</option>
+                            <option value="bunga-kredit">Bunga Kredit - 10%</option>
+                            <option value="dividen">Dividen - 15%</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nilaiBayarPPh">Nilai Bayar PPh (Rp)</label>
+                        <input type="number" id="nilaiBayarPPh" placeholder="Otomatis terisi" readonly>
+                    </div>
+
+                    <button class="btn-hitung" onclick="hitungPPh()">Hitung PPh Final</button>
+                    <button class="btn-reset" onclick="resetPPh()">Reset</button>
+                </div>
+
+                <div class="kalkulator-hasil">
+                    <h3>Hasil Perhitungan</h3>
+                    
+                    <div class="hasil-item">
+                        <label>Nilai Transaksi</label>
+                        <span id="hasilNilaiPPh">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Jenis Penghasilan</label>
+                        <span id="hasilJenisPPh">-</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Tarif PPh</label>
+                        <span id="hasilTarifPPh">0%</span>
+                    </div>
+
+                    <div class="hasil-item highlight">
+                        <label>PPh Final Terutang</label>
+                        <span id="hasilPPhFinal" class="nilai-besar">Rp 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div style="background: #f0f5fa; padding: 30px; border-radius: 8px; margin-top: 40px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Informasi PPh Final</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>PPh Final</strong> adalah pajak yang langsung final dan tidak dapat dikreditkan</li>
+                    <li><strong>Penjualan Properti:</strong> Tarif 1% dari nilai penjualan</li>
+                    <li><strong>Penjualan Saham:</strong> Tarif 0.5% dari nilai penjualan</li>
+                    <li><strong>Bunga Kredit:</strong> Tarif 10% dari bunga yang diterima</li>
+                    <li><strong>Dividen:</strong> Tarif 15% dari dividen yang diterima</li>
+                    <li>PPh Final biasanya menjadi tanggung jawab penerima penghasilan</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Notaris Lalu Daud Nurjadi M.Kn. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/kalkulator-pph.js"></script>
+</body>
+</html>

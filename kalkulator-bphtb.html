@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BPHTB - Notaris Lalu Daud Nurjadi M.Kn</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/kalkulator.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>Notaris Lalu Daud Nurjadi M.Kn</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Tentang</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section>
+        <div class="container">
+            <h2>Kalkulator BPHTB</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Bea Perolehan Hak atas Tanah dan Bangunan</p>
+            
+            <div class="kalkulator-wrapper">
+                <div class="kalkulator-form">
+                    <h3>Input Data</h3>
+                    
+                    <div class="form-group">
+                        <label for="nilaiTransaksi">Nilai Transaksi (Rp)</label>
+                        <input type="number" id="nilaiTransaksi" placeholder="Contoh: 500000000" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="npop">NPOP - Nilai Perolehan Objek Pajak (Rp)</label>
+                        <input type="number" id="npop" placeholder="Contoh: 500000000" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="npoptkp">NPOPTKP - Nilai Perolehan Objek Pajak Tidak Kena Pajak (Rp)</label>
+                        <input type="number" id="npoptkp" placeholder="Contoh: 30000000" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tarifBphtb">Tarif BPHTB (%)</label>
+                        <select id="tarifBphtb">
+                            <option value="5">5% (Standar)</option>
+                            <option value="3">3% (Khusus Rumah Tinggal)</option>
+                            <option value="0">0% (Dibebaskan)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-hitung" onclick="hitungBPHTB()">Hitung BPHTB</button>
+                    <button class="btn-reset" onclick="resetBPHTB()">Reset</button>
+                </div>
+
+                <div class="kalkulator-hasil">
+                    <h3>Hasil Perhitungan</h3>
+                    
+                    <div class="hasil-item">
+                        <label>Nilai Transaksi</label>
+                        <span id="hasilNilaiTransaksi">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>NPOP</label>
+                        <span id="hasilNPOP">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>NPOPTKP</label>
+                        <span id="hasilNPOPTKP">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>NOPTKP Pemungut (5%)</label>
+                        <span id="hasilNOPTKPPemungut">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Dasar Pengenaan Pajak</label>
+                        <span id="hasilDPP">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Tarif yang Dipilih</label>
+                        <span id="hasilTarif">5%</span>
+                    </div>
+
+                    <div class="hasil-item highlight">
+                        <label>BPHTB Terutang</label>
+                        <span id="hasilBPHTB" class="nilai-besar">Rp 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div style="background: #f0f5fa; padding: 30px; border-radius: 8px; margin-top: 40px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Informasi BPHTB</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>BPHTB</strong> adalah pajak atas perolehan hak atas tanah dan/atau bangunan</li>
+                    <li><strong>Tarif Standar:</strong> 5% dari nilai perolehan</li>
+                    <li><strong>Tarif Khusus:</strong> 3% untuk rumah tinggal pertama dengan batasan harga</li>
+                    <li><strong>NPOPTKP:</strong> Nilai yang tidak dikenakan pajak (standar Rp 30.000.000)</li>
+                    <li><strong>NOPTKP Pemungut:</strong> Komponen tambahan yang tidak dikenakan pajak (5% dari NPOP)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Notaris Lalu Daud Nurjadi M.Kn. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/kalkulator-bphtb.js"></script>
+</body>
+</html>

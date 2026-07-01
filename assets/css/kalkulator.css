@@ -1,0 +1,165 @@
+/* Kalkulator CSS */
+.kalkulator-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.kalkulator-form,
+.kalkulator-hasil {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.kalkulator-form h3,
+.kalkulator-hasil h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 20px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(26, 84, 144, 0.1);
+}
+
+.form-group input[readonly] {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+/* Buttons */
+.btn-hitung,
+.btn-reset {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.btn-hitung {
+    background-color: var(--primary-color);
+    color: white;
+    margin-bottom: 10px;
+}
+
+.btn-hitung:hover {
+    background-color: #0d3a68;
+}
+
+.btn-reset {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-reset:hover {
+    background-color: #5a6268;
+}
+
+/* Hasil Perhitungan */
+.hasil-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hasil-item:last-child {
+    border-bottom: none;
+}
+
+.hasil-item label {
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+.hasil-item span {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.hasil-item.highlight {
+    background-color: #f0f5fa;
+    padding: 15px;
+    border-radius: 4px;
+    border: 2px solid var(--secondary-color);
+}
+
+.hasil-item.highlight span {
+    color: var(--secondary-color);
+    font-size: 18px;
+}
+
+.nilai-besar {
+    font-size: 20px !important;
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
+}
+
+.hasil-item.highlight .nilai-besar {
+    color: var(--secondary-color) !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .kalkulator-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .kalkulator-form,
+    .kalkulator-hasil {
+        padding: 20px;
+    }
+
+    .hasil-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .btn-hitung,
+    .btn-reset {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

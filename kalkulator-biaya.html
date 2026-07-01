@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Biaya Notaris - Notaris Lalu Daud Nurjadi M.Kn</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/kalkulator.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>Notaris Lalu Daud Nurjadi M.Kn</h1>
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Tentang</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <section>
+        <div class="container">
+            <h2>Kalkulator Biaya Notaris</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Estimasi Biaya Jasa Notaris Lengkap</p>
+            
+            <div class="kalkulator-wrapper">
+                <div class="kalkulator-form">
+                    <h3>Input Data</h3>
+                    
+                    <div class="form-group">
+                        <label for="nilaiObjekNotaris">Nilai Objek (Rp)</label>
+                        <input type="number" id="nilaiObjekNotaris" placeholder="Contoh: 500000000" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="jenisLayanan">Jenis Layanan</label>
+                        <select id="jenisLayanan" onchange="updateBiayaNotaris()">
+                            <option value="ajb">AJB (Akta Jual Beli)</option>
+                            <option value="apht">APHT (Angsuran Hak Tanggungan)</option>
+                            <option value="hibah">Hibah</option>
+                            <option value="surat-kuasa">Surat Kuasa</option>
+                            <option value="perjanjian">Perjanjian</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-hitung" onclick="hitungBiayaNotaris()">Hitung Biaya Notaris</button>
+                    <button class="btn-reset" onclick="resetBiayaNotaris()">Reset</button>
+                </div>
+
+                <div class="kalkulator-hasil">
+                    <h3>Rincian Biaya</h3>
+                    
+                    <div class="hasil-item">
+                        <label>Nilai Objek</label>
+                        <span id="hasilNilaiObjek">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Jenis Layanan</label>
+                        <span id="hasilJenisLayanan">-</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Honorarium Notaris (1%)</label>
+                        <span id="hasilHonorariumNotaris">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Biaya PPAT (0.75%)</label>
+                        <span id="hasilBiayaPPAT">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Materai (Rp 10.000 x jumlah)</label>
+                        <span id="hasilMateraiNotaris">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Salinan Akta (Rp 50.000 x 2)</label>
+                        <span id="hasilSalinanNotaris">Rp 0</span>
+                    </div>
+
+                    <div class="hasil-item">
+                        <label>Biaya Administrasi</label>
+                        <span id="hasilAdminNotaris">Rp 500.000</span>
+                    </div>
+
+                    <div class="hasil-item highlight">
+                        <label>TOTAL BIAYA NOTARIS</label>
+                        <span id="hasilTotalNotaris" class="nilai-besar">Rp 0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div style="background: #f0f5fa; padding: 30px; border-radius: 8px; margin-top: 40px;">
+                <h3 style="color: var(--primary-color); margin-bottom: 15px;">Penjelasan Komponen Biaya</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Honorarium Notaris:</strong> Biaya jasa notaris untuk membuat akta (1% dari nilai objek)</li>
+                    <li><strong>Biaya PPAT:</strong> Biaya petugas pejabat pembuat akta tanah (0.75% dari nilai objek)</li>
+                    <li><strong>Materai:</strong> Biaya meterai untuk dokumen hukum</li>
+                    <li><strong>Salinan Akta:</strong> Biaya untuk salinan dokumen akta (~Rp 50.000/lembar)</li>
+                    <li><strong>Biaya Administrasi:</strong> Biaya pengurusan administrasi dokumen</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Notaris Lalu Daud Nurjadi M.Kn. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/kalkulator-biaya.js"></script>
+</body>
+</html>
